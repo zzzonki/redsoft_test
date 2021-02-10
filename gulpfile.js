@@ -2,8 +2,8 @@ const gulp = require("gulp")
 const scss = require("gulp-sass")
 const del = require('del')
 const cssnano = require('gulp-cssnano')
-const uglify = require('gulp-uglifyjs')
 const autoprefixer = require('gulp-autoprefixer')
+const ghPages = require('gulp-gh-pages')
 
 const { src, dest, watch, parallel } = require('gulp')
 
@@ -36,6 +36,12 @@ async function clean(){
     await del(['build/**/*'])
 }
 
+function deploy() {
+    return gulp.src('./build/**/*')
+      .pipe(ghPages());
+  }
+
 exports.tocss = tocss
 exports.watch = watchFile
 exports.build = parallel(clean, tocss, move)
+exports.deploy = deploy
