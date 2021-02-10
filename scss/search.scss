@@ -1,0 +1,25 @@
+.search{
+    width: 416px;
+    height: 48px;
+    display: flex;
+
+    &__input{
+        border: 1px solid $color-border;
+        font-family: $font-family;
+        outline: none;
+        color: #9f9f9f;
+        padding-left: 16px;
+        width: 294px;
+        height: 100%;
+        font-size: $font-size-base;
+
+        &:focus{
+            border-color: $color-border-focus;
+            color: $color-text;
+        }
+    }
+
+    &__button{
+        width: 122px;
+    }
+}
